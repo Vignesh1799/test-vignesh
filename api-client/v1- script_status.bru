@@ -1,0 +1,15 @@
+meta {
+  name: v1: script_status
+  type: http
+  seq: 5
+}
+
+get {
+  url: http://localhost:5000/v1/script/beaf9e0a-26c3-4949-b737-365125a41913/status
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

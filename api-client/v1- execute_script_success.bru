@@ -1,0 +1,24 @@
+meta {
+  name: v1: execute_script_success
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:5000/v1/script/execute
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "script": "import math\r\nimport time\r\n\r\ndef square_root(num):\r\n    return math.sqrt(num)\r\n\r\ndef square_root_and_add(num1, num2):\r\n    sqrt1 = square_root(num1)\r\n    sqrt2 = square_root(num2)\r\n    time.sleep(1)\r\n    return sqrt1 + sqrt2\r\n    \r\ndef main(data):\r\n    num1 = data[0]\r\n    num2 = data[1]\r\n    return square_root_and_add(num1, num2)",
+      "input": [4,9],
+      "callback_url": "http://localhost:5000/v1/script/test",
+      "uid": "beaf9e0a-26c3-4949-b737-365125a41913"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
